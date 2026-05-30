@@ -54,4 +54,9 @@ public class TripController {
     public List<TripSummaryDTO> getRecentTrips(@PathVariable Long id) {
         return tripService.getRecentTrips(id);
     }
+
+    @GetMapping("/user/stats/{id}")
+    public List<Integer> getUserStats(@PathVariable Long id) {
+        return tripService.getUserStats(id);
+    }
 }

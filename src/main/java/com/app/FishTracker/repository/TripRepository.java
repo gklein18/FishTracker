@@ -42,4 +42,6 @@ public interface TripRepository extends JpaRepository<Trip, Long> {
     List<TripSummaryDTO> findUserTripSummaries(Long userId);
 
     List<Trip> findTop3ByUserIdOrderByIdDesc(Long userId);
+
+    int countByUserId(Long userId);
 }

@@ -10,7 +10,7 @@ public class CatchRecordDTO {
     private Double weight;
     private LocalDateTime dateCaught;
     private boolean personalBest;
-    private String location;
+    private Long tripId;
 
     public Long getId() {
         return id;
@@ -60,11 +60,11 @@ public class CatchRecordDTO {
         this.dateCaught = dateCaught;
     }
 
-    public String getLocation() {
-        return location;
+    public Long getTripId() {
+        return tripId;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setTripId(Long tripId) {
+        this.tripId = tripId;
     }
 }

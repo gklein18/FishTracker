@@ -5,6 +5,7 @@ import com.app.FishTracker.dto.catchrecord.CreateCatchRequest;
 import com.app.FishTracker.dto.catchrecord.UpdateCatchRequest;
 import com.app.FishTracker.model.CatchRecord;
 import com.app.FishTracker.service.CatchRecordService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -31,12 +32,12 @@ public class CatchRecordController {
     }
 
     @PostMapping("/create")
-    public CatchRecordDTO createCatchRecord(@RequestBody CreateCatchRequest request) {
+    public CatchRecordDTO createCatchRecord(@Valid @RequestBody CreateCatchRequest request) {
         return catchRecordService.createCatchRecord(request);
     }
 
     @PostMapping("/bulk")
-    public List<CatchRecordDTO> createCatchRecordBatch(@RequestBody List<CreateCatchRequest> catchRecords) {
+    public List<CatchRecordDTO> createCatchRecordBatch(@Valid @RequestBody List<CreateCatchRequest> catchRecords) {
         List<CatchRecordDTO> retList = new ArrayList<>();
 
         for (CreateCatchRequest record : catchRecords) {

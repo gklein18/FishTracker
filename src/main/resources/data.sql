@@ -35,5 +35,5 @@ INSERT INTO fish (name, scientific_name) VALUES ('White Bass', 'test');
 INSERT INTO fish (name, scientific_name) VALUES ('White Crappie', 'test');
 
 INSERT INTO users (email, password_hash) VALUES ('test@email.com', 'passwordpassword');
-INSERT INTO trips (location, trip_date, duration_hours, user_id) VALUES ('lake', CURRENT_DATE, 3, (SELECT id FROM users LIMIT 1));
-INSERT INTO catchrecords (location, length, date_caught, user_id, weight, is_personal_best, fish_id, trip_id) VALUES ('lake', 22.1, CURRENT_TIMESTAMP, (SELECT id FROM users LIMIT 1), 4.1, true, (SELECT id from fish where name = 'Largemouth Bass' LIMIT 1), (SELECT id from trips LIMIT 1));
+--INSERT INTO trips (location, trip_date, duration_hours, user_id) VALUES ('lake', CURRENT_DATE, 3, (SELECT id FROM users LIMIT 1));
+--INSERT INTO catchrecords (length, date_caught, user_id, weight, is_personal_best, fish_id, trip_id) VALUES (22.1, CURRENT_TIMESTAMP, (SELECT id FROM users LIMIT 1), 4.1, true, (SELECT id from fish where name = 'Largemouth Bass' LIMIT 1), (SELECT id from trips LIMIT 1));

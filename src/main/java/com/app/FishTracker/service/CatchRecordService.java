@@ -80,7 +80,6 @@ public class CatchRecordService {
         catchRecord.setLength(request.getLength());
         catchRecord.setWeight(request.getWeight());
         catchRecord.setDateCaught(request.getDateCaught());
-        catchRecord.setLocation(request.getLocation());
         catchRecord.setUser(user);
         catchRecord.setPersonalBest(personalBest(user.getId(), fish.getId(), request.getLength()));
 
@@ -150,7 +149,7 @@ public class CatchRecordService {
         catchRecordDTO.setWeight(catchRecord.getWeight());
         catchRecordDTO.setDateCaught(catchRecord.getDateCaught());
         catchRecordDTO.setPersonalBest(catchRecord.getPersonalBest());
-        catchRecordDTO.setLocation(catchRecord.getLocation());
+        catchRecordDTO.setTripId(catchRecord.getTrip().getId());
 
         return catchRecordDTO;
     }

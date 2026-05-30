@@ -33,4 +33,9 @@ public interface CatchRecordRepository extends JpaRepository<CatchRecord, Long> 
 
     @Query("SELECT c FROM CatchRecord c where c.user.id = :userId AND c.isPersonalBest = true ORDER BY c.id DESC")
     List<CatchRecord> findRecentPBs(Long userId, Pageable pageable);
+
+    int countByUserId(Long userId);
+
+    @Query("SELECT COUNT(c) FROM CatchRecord c where c.user.id = :userId AND c.isPersonalBest = true")
+    int countPBs(Long userId);
 }

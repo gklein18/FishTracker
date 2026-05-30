@@ -8,6 +8,7 @@ import com.app.FishTracker.dto.trip.UpdateTripRequest;
 import com.app.FishTracker.model.CatchRecord;
 import com.app.FishTracker.model.Trip;
 import com.app.FishTracker.model.User;
+import com.app.FishTracker.repository.CatchRecordRepository;
 import com.app.FishTracker.repository.TripRepository;
 import com.app.FishTracker.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,16 +24,32 @@ public class TripService {
     private final TripRepository tripRepository;
     private final CatchRecordService catchRecordService;
     private final UserRepository userRepository;
+    private final CatchRecordRepository catchRecordRepository;
 
     @Autowired
-    public TripService(TripRepository tripRepository, CatchRecordService catchRecordService, UserRepository userRepository) {
+    public TripService(TripRepository tripRepository, CatchRecordService catchRecordService, UserRepository userRepository, CatchRecordRepository catchRecordRepository) {
         this.tripRepository = tripRepository;
         this.catchRecordService = catchRecordService;
         this.userRepository = userRepository;
+        this.catchRecordRepository = catchRecordRepository;
     }
 
     public List<TripSummaryDTO> findByUserId(Long userId) {
         return tripRepository.findUserTripSummaries(userId);
+    }
+
+    public List<Integer> getUserStats(Long userId) {
+        //0 = trip count, 1 = catch count, 2 = personal best
+        List<Integer> stats = new ArrayList<>();
+        int trips = tripRepository.countByUserId(userId);
+        int catches = catchRecordRepository.countByUserId(userId);
+        int pbs = catchRecordRepository.countPBs(userId);
+
+        stats.add(trips);
+        stats.add(catches);
+        stats.add(pbs);
+
+        return stats;
     }
 
     public TripDetailDTO createTrip(CreateTripRequest request) {

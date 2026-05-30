@@ -13,8 +13,6 @@ public class CatchRecord {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String location;
-
     private Double length;
 
     private LocalDateTime dateCaught;
@@ -54,14 +52,6 @@ public class CatchRecord {
 
     public void setDateCaught(LocalDateTime dateCaught) {
         this.dateCaught = dateCaught;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
     }
 
     public Double getWeight() {

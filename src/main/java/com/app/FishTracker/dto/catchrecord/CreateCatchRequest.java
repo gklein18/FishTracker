@@ -1,15 +1,31 @@
 package com.app.FishTracker.dto.catchrecord;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+
 import java.time.LocalDateTime;
 
 public class CreateCatchRequest {
 
+    @NotNull
     private Long fishId;
+
+    @NotNull
+    @Min(1)
+    @Max(10)
     private Double length;
+
+    @Min(1)
+    @Max(200)
     private Double weight;
+
+    @NotNull
     private LocalDateTime dateCaught;
-    private String location;
+
+    @NotNull
     private Long tripId;
+
     private Long userId;
 
     public Long getFishId() {
@@ -42,14 +58,6 @@ public class CreateCatchRequest {
 
     public void setDateCaught(LocalDateTime dateCaught) {
         this.dateCaught = dateCaught;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
     }
 
     public Long getTripId() {

@@ -53,8 +53,8 @@ public class UserService {
         return toDTO(userRepository.save(user));
     }
 
-    public UserDTO updateUser(UpdateUserRequest request, Long id) {
-        User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
+    public UserDTO updateUser(UpdateUserRequest request) {
+        User user = userRepository.findById(request.getId()).orElseThrow(() -> new RuntimeException("User not found"));
 
         user.setEmail(request.getEmail());
 
