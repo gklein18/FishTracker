@@ -13,7 +13,7 @@ public class CreateCatchRequest {
 
     @NotNull
     @Min(1)
-    @Max(10)
+    @Max(120)
     private Double length;
 
     @Min(1)

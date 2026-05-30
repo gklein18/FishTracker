@@ -36,7 +36,9 @@ public class SecurityConfig {
 
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.setAllowedOrigins(List.of("http://localhost:4200")); // Angular
+        configuration.setAllowedOrigins(List.of(
+                "http://localhost:4200",
+                "https://d1rx0u9yqh5qak.cloudfront.net"));
         configuration.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
