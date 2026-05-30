@@ -49,6 +49,7 @@ Catch entry modal:
 <img width="1904" height="945" alt="image" src="https://github.com/user-attachments/assets/880ac60d-ba7f-443e-a2fd-96db4acfdaf6" />
 
 Mobile view (dev tools version):
+
 <img width="448" height="884" alt="image" src="https://github.com/user-attachments/assets/fea94723-acd7-4242-8881-417ca1fba750" />
 
 
